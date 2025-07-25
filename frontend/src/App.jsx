@@ -11,8 +11,7 @@ function App() {
   const { authUser } = useAuthContext();
 
   return (
-    <div className="p-4 h-screen flex items-center justify-center">
-
+    <div className="p-4 h-screen flex items-center justify-center bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
       <Routes>
         <Route path='/' element={authUser ? <Home /> : <Navigate to={'/login'} />} />
         <Route path='/login' element={authUser ? <Navigate to='/' /> : <Login />} />

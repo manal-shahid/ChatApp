@@ -8,6 +8,13 @@ body {
     background-size: cover;
     background-position: center;
 }
+ /* body {
+    background: url('/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+} */
+
 
 /* dark mode looking scrollbar */
 ::-webkit-scrollbar {
@@ -25,4 +32,7 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #242424;
+}
+.dark body {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/bg.png');
 }
