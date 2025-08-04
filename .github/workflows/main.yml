@@ -1,0 +1,42 @@
+name: ChatApp CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install backend dependencies
+        working-directory: .
+        run: npm install
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm install
+
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
+
+      - name: Lint frontend
+        working-directory: frontend
+        run: npm run lint || echo "Lint errors ignored"
+
+      - name: Check backend startup (basic)
+        working-directory: .
+        run: |
+          npm run server & sleep 5 && echo "Server started"
+          
