@@ -24,8 +24,13 @@ app.use("/api/users", userRoutes);
 // root route http://localhost:5000/
 //  res.send("Hello World!a");
 //});
+// app.get('/ping', (req, res) => res.send('pong'));
+app.get('/ping', (req, res) => {
+  res.send('pong');
+});
 //start the server
 app.listen(PORT, () => {
     connectToMongoDB();
     console.log(`Server Running on port ${PORT}`);
 });
+export default app; // Export the app for testing purposes

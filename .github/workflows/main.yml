@@ -2,9 +2,9 @@ name: ChatApp CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -17,10 +17,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install backend dependencies
-        working-directory: .
+        working-directory: backend
         run: npm install
 
       - name: Install frontend dependencies
@@ -36,7 +36,10 @@ jobs:
         run: npm run lint || echo "Lint errors ignored"
 
       - name: Check backend startup (basic)
-        working-directory: .
+        working-directory: backend
         run: |
           npm run server & sleep 5 && echo "Server started"
-          
+
+      - name: Run backend tests
+        working-directory: backend
+        run: npm test
