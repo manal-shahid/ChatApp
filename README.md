@@ -1,3 +1,5 @@
+[![CI](https://github.com/manal-shahid/ChatApp/actions/workflows/main.yml/badge.svg)](https://github.com/manal-shahid/ChatApp/actions/workflows/main.yml)
+
 MERN Stack Chat Application
 
 Introduction
